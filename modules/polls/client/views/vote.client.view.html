@@ -4,25 +4,24 @@
       <h1>View Poll</h1>
     </div>
     <div class="well well-lg">
-      <strong>Question</strong><br>{{poll.question}}
+      <strong>Question</strong><br>{{vm.poll.question}}
     </div>
     <div ng-hide="hasVoted">
-      <p class="lead" ng-hide="poll.pollType == 'ma'">Please select one of the following options: </p>
-      <p class="lead" ng-show="poll.pollType == 'ma'">Please select all that apply: </p>
-      <form role="form" ng-submit="vote()">
-        <rzslider ng-show="poll.pollType == 'range'"
-                  rz-slider-model="range"
-                  rz-slider-floor="1"
-                  rz-slider-ceil="10"></rzslider>
-        <div ng-repeat="choice in poll.choices" class="radio" ng-show="poll.pollType == 'mc'">
+      <p class="lead" ng-hide="vm.poll.pollType == 'ma'">Please select one of the following options: </p>
+      <p class="lead" ng-show="vm.poll.pollType == 'ma'">Please select all that apply: </p>
+      <form role="form" ng-submit="vm.vote()">
+        <rzslider ng-show="vm.poll.pollType == 'range'"
+                  rz-slider-model="vm.slider.value"
+                  rz-slider-options="vm.slider.options"></rzslider>
+        <div ng-repeat="choice in vm.poll.choices" class="radio" ng-show="vm.poll.pollType == 'mc'">
           <label>
-            <input type="radio" name="choice" ng-model="poll.userVote" value="{{choice._id}}">
+            <input type="radio" name="choice" ng-model="vm.poll.userVote" value="{{choice._id}}">
             {{choice.text}}
           </label>
         </div>
-        <div ng-repeat="choice in poll.choices" class="radio" ng-show="poll.pollType == 'ma'">
+        <div ng-repeat="choice in vm.poll.choices" class="radio" ng-show="vm.poll.pollType == 'ma'">
           <label>
-            <input type="checkbox" name="choice" ng-model="poll.userVote[choice._id]" value="{{choice._id}}" id="{{choice._id}}">
+            <input type="checkbox" name="choice" ng-model="vm.poll.userVote[choice._id]" value="{{choice._id}}" id="{{choice._id}}">
             {{choice.text}}
           </label>
         </div>
@@ -40,7 +39,7 @@
         </div>
       </form>
     </div>
-    <div ng-show="hasVoted">
+    <div ng-show="vm.hasVoted">
       <h1>Thank you for voting :)</h1>
 
       <p>

@@ -30,7 +30,7 @@
     }
 
     function successHandler() {
-      console.log("Success")
+      console.log("Success");
     }
 
     function errorHandler(error) {

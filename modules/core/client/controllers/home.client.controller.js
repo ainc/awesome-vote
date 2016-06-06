@@ -5,9 +5,9 @@
     .module('core')
     .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['Socket', 'Poll']
+  HomeController.$inject = ['Poll'];
 
-  function HomeController(Socket, Poll) {
+  function HomeController(Poll) {
     var vm = this;
 
     vm.polls = Poll.query();

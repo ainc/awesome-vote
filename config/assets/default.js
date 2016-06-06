@@ -6,7 +6,8 @@ module.exports = {
       css: [
         // bower:css
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.min.css'
+        'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+        'public/lib/angularjs-slider/dist/rzslider.min.css'
         // endbower
       ],
       js: [
@@ -18,7 +19,8 @@ module.exports = {
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/dist/angular-file-upload.js',
-        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
+        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'public/lib/angularjs-slider/dist/rzslider.min.js'
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
