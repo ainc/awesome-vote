@@ -1,0 +1,20 @@
+<section>
+  <div class="page-header">
+    <h1>My Polls</h1>
+  </div>
+  <div class="row">
+    <nav class="col-sm-3 col-md-3">
+      <ul class="nav nav-pills nav-stacked">
+        <li ui-sref-active="active">
+          <a ui-sref="polls.all">All Polls</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="polls.new">New Poll</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="col-sm-9 col-md-8 settings-view">
+      <div ui-view></div>
+    </div>
+  </div>
+</section>

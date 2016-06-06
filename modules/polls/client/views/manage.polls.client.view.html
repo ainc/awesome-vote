@@ -1,0 +1,13 @@
+<section class="row">
+  <div class="col-xs-offset-1 col-xs-10">
+    <h1>Manage Poll:</h1>
+    <h3><strong>Question:</strong></h3><p>{{vm.poll.question}}</p>
+    <h3><strong>Type:</strong></h3><p>{{vm.poll.pollType}}</p>
+    <h3><strong>Choices:</strong></h3><p>{{vm.poll.choices.length}}</p>
+    <h3><strong>Total Votes:</strong></h3><p>{{vm.poll.__v}}</p>
+    <h3><strong>Shortcode:</strong></h3><p>{{vm.poll.shortcode}}</p>
+  <button ng-click="vm.disableVoting()" ng-show="vm.poll.votingEnabled">Disable Voting</button>
+    <button ng-click="vm.enableVoting()" ng-hide="vm.poll.votingEnabled">Enable Voting</button>
+    <button ui-sref="polls.presenter({ shortcode: sc })">View Live Results</button>
+  </div>
+</section>
