@@ -2,7 +2,7 @@
 
 module.exports = {
   app: {
-    title: 'Awesome Vote',
+    title: 'AwesomeVote',
     description: 'Voting for 5across',
     keywords: 'awesome, inc, 5across, vote, ainc',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'

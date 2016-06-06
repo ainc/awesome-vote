@@ -6,10 +6,10 @@
     <hr>
     <h2>Current Open Poll:</h2>
     <br />
-    <div class="row" ng-show="polls.length === 0">
+    <div class="row" ng-show="vm.polls.length === 0">
       <p>Bummer! No Polls Available.</p>
     </div>
-    <p ng-show="polls.length != 0" ng-repeat="poll in polls | filter:query"><a class="btn btn-primary btn-lg" href="/vote/{{poll.shortcode}}">{{poll.question}}</a></p>
+    <p ng-show="vm.polls.length != 0" ng-repeat="poll in vm.polls | filter:query"><a class="btn btn-primary btn-lg" href="/vote/{{poll.shortcode}}">{{poll.question}}</a></p>
 
     <!-- TODO: 5across mode for only 5across events. For time sake it is just going to be deployed in 5across mode
     <div class="row">
