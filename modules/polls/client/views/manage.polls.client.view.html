@@ -8,6 +8,7 @@
     <h3><strong>Shortcode:</strong></h3><p>{{vm.poll.shortcode}}</p>
   <button ng-click="vm.disableVoting()" ng-show="vm.poll.votingEnabled">Disable Voting</button>
     <button ng-click="vm.enableVoting()" ng-hide="vm.poll.votingEnabled">Enable Voting</button>
-    <button ui-sref="polls.presenter({ shortcode: sc })">View Live Results</button>
+    <button ng-click="vm.delete()">Delete Poll</button>
+    <button ui-sref="polls.presenter({ shortcode: vm.shortcode })">View Live Results</button>
   </div>
 </section>

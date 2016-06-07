@@ -5,10 +5,19 @@
     .module('polls')
     .controller('PresenterPollsController', PresenterPollsController);
 
-  PresenterPollsController.$inject = ['ArticlesService'];
+  PresenterPollsController.$inject = ['Poll', '$stateParams', 'Socket'];
 
-  function PresenterPollsController(ArticlesService) {
+  function PresenterPollsController(Poll, $stateParams, Socket) {
     var vm = this;
+
+    vm.poll = Poll.get({ shortcode: $stateParams.shortcode });
+
+    Socket.on('vote', function (data) {
+      if (data.shortcode === $stateParams.shortcode) {
+        vm.poll.choices = data.choices;
+        vm.poll.totalVotes = data.totalVotes;
+      }
+    });
 
   }
 }());

@@ -10,6 +10,6 @@
   function HomeController(Poll) {
     var vm = this;
 
-    vm.polls = Poll.query();
+    vm.polls = Poll.query({ 'shortcode': 'polls' });
   }
 }());

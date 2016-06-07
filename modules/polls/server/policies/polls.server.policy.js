@@ -18,6 +18,9 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/polls',
       permissions: '*'
     }, {
+      resources: '/api/polls/polls',
+      permissions: '*'
+    }, {
       resources: '/api/polls/:pollId',
       permissions: '*'
     }]
@@ -28,6 +31,9 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }, {
       resources: '/api/polls/polls',
+      permissions: ['get']
+    }, {
+      resources: '/api/polls/:pollId',
       permissions: ['get']
     }]
   }]);

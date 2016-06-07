@@ -6,7 +6,7 @@
     <div class="well well-lg">
       <strong>Question</strong><br>{{vm.poll.question}}
     </div>
-    <div ng-hide="hasVoted">
+    <div ng-hide="vm.hasVoted">
       <p class="lead" ng-hide="vm.poll.pollType == 'ma'">Please select one of the following options: </p>
       <p class="lead" ng-show="vm.poll.pollType == 'ma'">Please select all that apply: </p>
       <form role="form" ng-submit="vm.vote()">

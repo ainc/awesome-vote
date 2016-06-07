@@ -1,8 +1,8 @@
 <section>
   <div>
-    <h1>{{poll.question}}</h1>
+    <h1>{{vm.poll.question}}</h1>
     <table class="result-table">
-      <tr ng-repeat="choice in poll.choices">
+      <tr ng-repeat="choice in vm.poll.choices">
         <td>{{choice.text}}</td>
         <td>
           <table style="background-color: lightblue; width: {{choice.votes.length/poll.totalVotes*100}}%; text-align: right">
@@ -16,7 +16,7 @@
 
     <p>
       <em>
-        {{poll.totalVotes}} votes counted so far.
+        {{vm.poll.totalVotes}} votes counted so far.
       </em>
     </p>
 
