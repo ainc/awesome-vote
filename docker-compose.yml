@@ -9,8 +9,9 @@ web:
    - "3000:3000"
    - "5858:5858"
    - "35729:35729"
+   - "80:80"
   environment:
-   - NODE_ENV=development
+   - NODE_ENV=production
   volumes:
    - ./:/opt/awesome-vote
    - /opt/awesome-vote/node_modules

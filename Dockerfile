@@ -1,8 +1,8 @@
 # Build:
-# docker build -t ainc/awesome-vote .
+# docker build -t drakee510/awesome-vote .
 #
 # Run:
-# docker run -it ainc/awesome-vote
+# docker run -it drakee510/awesome-vote
 #
 # Compose:
 # docker-compose up -d
@@ -50,7 +50,7 @@ RUN npm cache clean
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Set development environment as default
-ENV NODE_ENV development
+ENV NODE_ENV production
 
 # Ports generic
 EXPOSE 80:80
