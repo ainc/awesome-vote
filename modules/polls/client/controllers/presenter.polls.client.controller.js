@@ -13,6 +13,7 @@
     vm.poll = Poll.get({ shortcode: $stateParams.shortcode });
 
     Socket.on('vote', function (data) {
+      console.log("VOTE GOT");
       if (data.shortcode === $stateParams.shortcode) {
         vm.poll.choices = data.choices;
         vm.poll.totalVotes = data.totalVotes;

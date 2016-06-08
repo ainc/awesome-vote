@@ -23,7 +23,7 @@ var PollSchema = new mongoose.Schema({
   shortcode: { type: String, required: true, unique: true },
   user: { type: Object, required: true },
   votingEnabled: { type: Boolean },
-  totalVotes: { type: Number }
+  totalVotes: { type: Number, default: 0 }
 });
 
 PollSchema.plugin(uniqueValidator);

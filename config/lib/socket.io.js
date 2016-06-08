@@ -10,7 +10,8 @@ var config = require('../config'),
   passport = require('passport'),
   socketio = require('socket.io'),
   session = require('express-session'),
-  MongoStore = require('connect-mongo')(session);
+  MongoStore = require('connect-mongo')(session),
+  polls = require(path.resolve('./modules/polls/server/controllers/polls.server.controller'));
 
 // Define the Socket.io configuration method
 module.exports = function (app, db) {
@@ -67,7 +68,7 @@ module.exports = function (app, db) {
   });
 
   // Intercept Socket.io's handshake request
-  io.use(function (socket, next) {
+  /* io.use(function (socket, next) {
     // Use the 'cookie-parser' module to parse the request cookies
     cookieParser(config.sessionSecret)(socket.request, {}, function (err) {
       // Get the session id from the request cookies
@@ -95,7 +96,7 @@ module.exports = function (app, db) {
         });
       });
     });
-  });
+  }); */
 
   // Add an event listener to the 'connection' event
   io.on('connection', function (socket) {
@@ -103,6 +104,8 @@ module.exports = function (app, db) {
       require(path.resolve(socketConfiguration))(io, socket);
     });
   });
+
+  io.sockets.on('connection', polls.vote);
 
   return server;
 };

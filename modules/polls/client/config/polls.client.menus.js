@@ -24,7 +24,7 @@
     // Add the dropdown create item
     menuService.addSubMenuItem('topbar', 'polls', {
       title: 'Create Poll',
-      state: 'polls.create'
+      state: 'polls.new'
     });
   }
 }());

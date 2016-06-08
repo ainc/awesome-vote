@@ -5,9 +5,9 @@
     .module('polls')
     .controller('ManagePollsController', ManagePollsController);
 
-  ManagePollsController.$inject = ['Poll', '$stateParams', '$state'];
+  ManagePollsController.$inject = ['Poll', '$stateParams', '$state', 'Socket'];
 
-  function ManagePollsController(Poll, $stateParams, $state) {
+  function ManagePollsController(Poll, $stateParams, $state, Socket) {
     var vm = this;
 
     vm.enableVoting = enableVoting;
@@ -32,6 +32,9 @@
 
     function successHandler() {
       console.log("Success");
+      setTimeout(function() {
+        Socket.emit('refresh', null);
+      }, 200);
     }
 
     function errorHandler(error) {

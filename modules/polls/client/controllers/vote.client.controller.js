@@ -21,7 +21,8 @@
     vm.vote = vote;
 
     // See if user has voted from local storage
-    vm.hasVoted = localStorage.getItem($stateParams.pollId);
+    // vm.hasVoted = localStorage.getItem($stateParams.pollId);
+    vm.hasVoted = false;
     if (vm.hasVoted === null) {
       vm.hasVoted = false;
     }
@@ -51,7 +52,7 @@
           choiceId = vm.poll.userVote;
 
         if (vm.poll.pollType === "range") {
-          var id = vm.poll.choices[vm.range - 1]._id;
+          var id = vm.poll.choices[vm.slider.value - 1]._id;
           var voteRangeObj = { poll_id: pollId, choice: id };
           Socket.emit('send:vote', voteRangeObj);
         } else if (vm.poll.pollType === "ma") {
