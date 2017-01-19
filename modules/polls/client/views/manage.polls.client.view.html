@@ -6,7 +6,8 @@
     <h3><strong>Choices:</strong></h3><p>{{vm.poll.choices.length}}</p>
     <h3><strong>Total Votes:</strong></h3><p>{{vm.poll.__v}}</p>
     <h3><strong>Shortcode:</strong></h3><p>{{vm.poll.shortcode}}</p>
-  <button ng-click="vm.disableVoting()" ng-show="vm.poll.votingEnabled">Disable Voting</button>
+    <button ng-click="vm.disableVoting()" ng-show="vm.poll.votingEnabled">Disable Voting Immediately</button>
+    <button ng-click="vm.disableTimer()" ng-show="vm.poll.votingEnabled">Disable Voting Timed 90 Seconds</button>
     <button ng-click="vm.enableVoting()" ng-hide="vm.poll.votingEnabled">Enable Voting</button>
     <button ng-click="vm.delete()">Delete Poll</button>
     <button ui-sref="polls.presenter({ shortcode: vm.shortcode })">View Live Results</button>

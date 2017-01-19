@@ -30,6 +30,11 @@
       vm.poll.$update(successHandler, errorHandler);
     }
 
+    function disableTimer() {
+      // Make http call.
+      
+    }
+
     function successHandler() {
       console.log("Success");
       setTimeout(function() {
