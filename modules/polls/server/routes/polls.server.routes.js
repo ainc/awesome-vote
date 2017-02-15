@@ -25,6 +25,9 @@ module.exports = function (app) {
     .put(polls.update)
     .delete(polls.delete);
 
+  app.route('/api/timer/:pollId').all(pollsPolicy.isAllowed)
+      .post(polls.timer);
+
   // Finish by binding the article middleware
   app.param('pollId', polls.pollByID);
 };

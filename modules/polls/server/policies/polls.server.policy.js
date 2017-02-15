@@ -23,6 +23,9 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/polls/:pollId',
       permissions: '*'
+    }, {
+      resources: '/api/timer/:pollId',
+        permissions: '*'
     }]
   }, {
     roles: ['guest'],

@@ -5,14 +5,15 @@
     .module('polls')
     .controller('ManagePollsController', ManagePollsController);
 
-  ManagePollsController.$inject = ['Poll', '$stateParams', '$state', 'Socket'];
+  ManagePollsController.$inject = ['Poll', '$stateParams', '$state', 'Socket', '$http'];
 
-  function ManagePollsController(Poll, $stateParams, $state, Socket) {
+  function ManagePollsController(Poll, $stateParams, $state, Socket, $http) {
     var vm = this;
 
     vm.enableVoting = enableVoting;
     vm.disableVoting = disableVoting;
     vm.delete = deleteClass;
+    vm.disableTimer = disableTimer;
 
     // GET POLL OBJECT FROM SHORTCODE QUERY
     // UPDATE TOGGLED STATE
@@ -32,7 +33,12 @@
 
     function disableTimer() {
       // Make http call.
-      
+        $http.post('api/timer/' + vm.shortcode, {}).success(function(data) {
+          console.log("Timer");
+            setTimeout(function() {
+                Socket.emit('refresh', null);
+            }, 200);
+        });
     }
 
     function successHandler() {
